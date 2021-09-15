@@ -1,0 +1,5 @@
+<h1>Login</h1>
+<% if (messages.error) { %> <%= messages.error %> <% } %>
+<form action="/login" method="POST"><%- include('_login_form') %></form>
+
+<a href="/register">Register</a>
