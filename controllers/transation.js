@@ -18,8 +18,7 @@ const payPost = async (req, res) => {
   try {
     sender.ammount = sender.ammount - ammount;
     receiver.ammount = receiver.ammount + ammount;
-    await sender.save();
-    await receiver.save();
+    console.log(sender)
     const newTransation = await transation.save();
     res.redirect("/");
   } catch (error) {
