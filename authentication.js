@@ -13,6 +13,7 @@ const authentication = (app, passport) => {
       name: req.body.name,
       email: req.body.email,
       phone: req.body.phone,
+      sex: req.body.sex,
       password: hashedPassword,
     });
     try {

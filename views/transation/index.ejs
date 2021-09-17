@@ -1,0 +1,21 @@
+<h1>Transations</h1>
+<% transations.forEach(t => { %> <% if (t.receiver.id !== user.id){ %>
+<div>
+  <h2>Transation Id <%= t._id %></h2>
+  <ul>
+    <li>TO : <%= t.receiver.phone %></li>
+    <li>Ammount : -<%= t.ammount %></li>
+    <li>Date : <%= t.transationDate %></li>
+  </ul>
+</div>
+<% } else {%>
+<div>
+  <h2>Transation Id <%= t._id %></h2>
+  <ul>
+    <li>From : <%= t.sender.phone %></li>
+
+    <li>Ammount : +<%= t.ammount %></li>
+    <li>Date : <%= t.transationDate %></li>
+  </ul>
+</div>
+<% } %> <% }) %>
