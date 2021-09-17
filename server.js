@@ -44,7 +44,7 @@ app.use(express.urlencoded({ extended: false }));
 mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true });
 
 app.use("/", indexRoute);
-app.use("/send", transationRoute);
+app.use("/transations", transationRoute);
 authentication(app, passport);
 
 const db = mongoose.connection;

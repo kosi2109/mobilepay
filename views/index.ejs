@@ -1,18 +1,9 @@
 <h1>Hello <%= user.name %></h1>
-<% transations.forEach(t => { %>
-<div>
-  <h2>Transation Id <%= t._id %></h2>
-  <ul>
-    <li>Sender : <%= t.sender %></li>
-    <li>Receiver : <%= t.receiver.phone %></li>
-    <li>Ammount : <%= t.ammount %></li>
-    <li>Date : <%= t.transationDate %></li>
-  </ul>
-</div>
+<h3>Current: <%= user.balance %> Ks</h3>
 
-<% }) %>
 <form action="/logout?_method=DELETE" method="POST">
   <button type="submit">LogOut</button>
 </form>
 
-<a href="/send">Send</a>
+<a href="/transations/send">Send</a>
+<a href="/transations">Transation</a>
