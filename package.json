@@ -19,10 +19,13 @@
     "express-ejs-layouts": "^2.5.1",
     "express-flash": "0.0.2",
     "express-session": "^1.17.2",
+    "instascan": "^1.0.0",
     "method-override": "^3.0.0",
     "mongoose": "^6.0.5",
     "nodemon": "^2.0.12",
+    "package.json": "^2.0.1",
     "passport": "^0.4.1",
-    "passport-local": "^1.0.0"
+    "passport-local": "^1.0.0",
+    "qrcode": "^1.4.4"
   }
 }

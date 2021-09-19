@@ -1,0 +1,75 @@
+<div class="ht-head d-flex flex-row">
+  <h6>
+    <a href="/"><img class="back-key" src="/assets/previous.png" alt="" /></a>
+  </h6>
+  <h5>Profile</h5>
+</div>
+<div class="container-fluid">
+  <!-- Button trigger modal -->
+
+  <!-- Modal -->
+  <div
+    class="modal fade"
+    id="exampleModal"
+    tabindex="-1"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body">
+          <form action="/logout?_method=DELETE" method="POST">
+            <p class="text-dark">Are You Sure To Log Out ?</p>
+            <button type="submit" class="btn btn-md btn-outline-danger">
+              LogOut
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="pf-container">
+        <div class="pf mb-3">
+          <img src="<%= user.coverImagePath %>" alt="" />
+        </div>
+        <div>
+          <h5><%= user.name %></h5>
+        </div>
+      </div>
+      <div class="pf-detail">
+        <div class="pf-detail-item">
+          <h5>Balance</h5>
+          <h5><%= user.balance %></h5>
+        </div>
+        <div class="pf-detail-item">
+          <h5>Phone</h5>
+          <h5><%= user.phone %></h5>
+        </div>
+        <div class="pf-detail-item">
+          <h5>Sex</h5>
+          <h5>
+            <% if(user.sex == 'M') {%> Male <% }else if(user.sex == 'F'){ %>
+            Female <% } else {%> Other <% } %>
+          </h5>
+        </div>
+      </div>
+      <div class="pf-btn-container">
+        <div>
+          <a href="/password_reset"><button>Change Password</button></a>
+        </div>
+
+        <button
+          type="button"
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal"
+        >
+          Logout
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include('../layouts/menu.ejs') %>

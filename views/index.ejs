@@ -1,9 +1,37 @@
-<h1>Hello <%= user.name %></h1>
-<h3>Current: <%= user.balance %> Ks</h3>
+<div class="container-fluid">
+  <div class="top-color"></div>
+  <div class="header d-flex justify-content-around">
+    <div class="pf">
+      <img src="<%= user.coverImagePath %>" alt="" />
+    </div>
+    <div class="detail">
+      <h5><%= user.name %></h5>
+      <h6><%= user.balance %> Ks</h6>
+    </div>
+  </div>
+  <div class="hd-menu">
+    <div class="menu-item">
+      <a href="/transations/send">
+        <div>
+          <h6>Menual Pay</h6>
+        </div>
+      </a>
+    </div>
+    <div class="menu-item">
+      <a href="/transations">
+        <div>
+          <h6>History</h6>
+        </div>
+      </a>
+    </div>
+    <div class="menu-item">
+      <a href="">
+        <div>
+          <h6>Cash In/Out</h6>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
 
-<form action="/logout?_method=DELETE" method="POST">
-  <button type="submit">LogOut</button>
-</form>
-
-<a href="/transations/send">Send</a>
-<a href="/transations">Transation</a>
+<%- include('layouts/menu.ejs') %>

@@ -1,0 +1,45 @@
+.ht-top {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 20vh;
+  background-color: brown;
+  z-index: -1;
+  border-radius: 0 0 10px 10px;
+}
+.ht-head {
+  height: 10vh;
+  align-items: center;
+  background-color: brown;
+  padding: 5px 10px;
+}
+
+.pay-form {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  background-color: #fafafa;
+  padding: 20px;
+  box-shadow: 0.5px 0.5px 5px #252525;
+  border-radius: 5px;
+}
+
+.pay-form input {
+  margin-bottom: 10px;
+  border: none;
+  outline: none;
+  padding: 5px;
+  height: 35px;
+  border-bottom: 1px solid black;
+  background-color: inherit;
+  font-size: 20px;
+}
+
+.pay-form button {
+  height: 35px;
+  border: none;
+  background-color: blue;
+  color: #fafafa;
+}

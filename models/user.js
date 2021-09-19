@@ -25,6 +25,14 @@ const userSchema = new mongoose.Schema({
     type: Number,
     default: 0,
   },
+  coverImage: {
+    type: Buffer,
+    required: true,
+  },
+  coverImageType: {
+    type: String,
+    required: true,
+  },
 });
 
 userSchema.pre("remove", function (next) {
@@ -33,6 +41,14 @@ userSchema.pre("remove", function (next) {
   Transation.remove({ sender: this._id }).exec();
   Transation.remove({ receiver: this._id }).exec();
   next();
+});
+
+userSchema.virtual("coverImagePath").get(function () {
+  if (this.coverImage != null && this.coverImageType != null) {
+    return `data:${
+      this.coverImageType
+    };charset=utf-8;base64,${this.coverImage.toString("base64")}`;
+  }
 });
 
 module.exports = mongoose.model("Users", userSchema);

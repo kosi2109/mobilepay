@@ -1,0 +1,22 @@
+.transations {
+  padding: 10px 0;
+}
+.transations a {
+  text-decoration: none;
+  color: #252525;
+}
+.tran-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 10px;
+  border-bottom: 1px solid black;
+}
+
+.tran-item :first-child {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+}

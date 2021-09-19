@@ -1,21 +1,48 @@
-<h1>Transations</h1>
-<% transations.forEach(t => { %> <% if (t.receiver.id !== user.id){ %>
-<div>
-  <h2>Transation Id <%= t._id %></h2>
-  <ul>
-    <li>TO : <%= t.receiver.phone %></li>
-    <li>Ammount : -<%= t.ammount %></li>
-    <li>Date : <%= t.transationDate %></li>
-  </ul>
+<div class="ht-head d-flex flex-row">
+  <h6>
+    <a href="/"><img class="back-key" src="/assets/previous.png" alt="" /></a>
+  </h6>
+  <h5>History</h5>
 </div>
-<% } else {%>
-<div>
-  <h2>Transation Id <%= t._id %></h2>
-  <ul>
-    <li>From : <%= t.sender.phone %></li>
+<div class="container-fluid">
+  <div class="filter-history"></div>
 
-    <li>Ammount : +<%= t.ammount %></li>
-    <li>Date : <%= t.transationDate %></li>
-  </ul>
+  <div class="transations">
+    <% transations.forEach(t => { %> <% if (t.receiver.id != user.id){ %>
+    <a href="">
+      <div class="tran-item">
+        <div>
+          <h6>Transfer TO <%= t.receiver.phone %></h6>
+          <h6>
+            <%= t.transationDate.getDate() %>/<%= t.transationDate.getMonth()
+            %>/<%= t.transationDate.getFullYear() %> <%=
+            t.transationDate.getHours() %>:<%= t.transationDate.getMinutes()
+            %>:<%= t.transationDate.getSeconds() %>
+          </h6>
+        </div>
+        <div>
+          <h6>-<%= t.ammount %></h6>
+        </div>
+      </div>
+    </a>
+    <% } else {%>
+    <a href="">
+      <div class="tran-item">
+        <div>
+          <h6>Transfer From <%= t.sender.phone %></h6>
+          <h6>
+            <%= t.transationDate.getDate() %>/<%= t.transationDate.getMonth()
+            %>/<%= t.transationDate.getFullYear() %> <%=
+            t.transationDate.getHours() %>:<%= t.transationDate.getMinutes()
+            %>:<%= t.transationDate.getSeconds() %>
+          </h6>
+        </div>
+        <div>
+          <h6>+<%= t.ammount %></h6>
+        </div>
+      </div>
+    </a>
+    <% } %> <% }) %>
+  </div>
 </div>
-<% } %> <% }) %>
+<%- include('../layouts/menu.ejs') %>

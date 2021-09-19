@@ -1,7 +1,109 @@
-<h1>Send</h1>
-<h3><%= locals.message %></h3>
-<form action="/transations/send" method="POST">
-  <input type="text" name="phone" required />
-  <input type="number" name="ammount" required />
-  <button type="submit">Send</button>
-</form>
+<div class="ht-head d-flex flex-row">
+  <h6>
+    <a href="/"><img class="back-key" src="/assets/previous.png" alt="" /></a>
+  </h6>
+  <h5>Manual Pay</h5>
+</div>
+<div class="container-fluid">
+  <div class="ht-top"></div>
+  <!-- Button trigger modal -->
+
+  <form class="pay-form">
+    <input
+      class="mb-3"
+      type="text"
+      required
+      placeholder="Phone"
+      id="pre-phone"
+    />
+    <input
+      class="mb-3"
+      type="number"
+      required
+      placeholder="Ammount"
+      id="pre-ammount"
+    />
+    <button
+      type="button"
+      class="btn btn-primary"
+      data-bs-toggle="modal"
+      data-bs-target="#exampleModal"
+      id="next-btn"
+    >
+      Next
+    </button>
+  </form>
+
+  <!-- Modal -->
+  <div
+    class="modal fade"
+    id="exampleModal"
+    tabindex="-1"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Transfer</h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <form
+            action="/transations/send"
+            method="POST"
+            class="pay-form"
+            style="box-shadow: none; background-color: inherit"
+          >
+            <input
+              type="text"
+              name="phone"
+              required
+              placeholder="Phone"
+              id="phone"
+            />
+            <input
+              type="number"
+              name="ammount"
+              required
+              placeholder="Ammount"
+              id="ammount"
+            />
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button>
+              <button type="submit" class="btn btn-primary">Transfer</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<% if (locals.message) { %>
+
+<div class="alert alert-danger mt-3" role="alert"><%= locals.message %></div>
+<% } %> <%- include('../layouts/menu.ejs') %>
+
+<script>
+  const prePhone = document.getElementById("pre-phone");
+  const preAmmo = document.getElementById("pre-ammount");
+  const next = document.getElementById("next-btn");
+  const phone = document.getElementById("phone");
+  const ammount = document.getElementById("ammount");
+
+  next.addEventListener("click", () => {
+    phone.value = prePhone.value;
+    ammount.value = preAmmo.value;
+  });
+</script>

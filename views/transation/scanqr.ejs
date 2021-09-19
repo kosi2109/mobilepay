@@ -1,0 +1,74 @@
+<div class="ht-head d-flex flex-row">
+  <h6>
+    <a href="/"><img class="back-key" src="/assets/previous.png" alt="" /></a>
+  </h6>
+  <h5>Scan</h5>
+</div>
+<div class="qr-container">
+  <h2>Scan QR TO Pay</h2>
+  <% if (locals.message) { %>
+
+  <div class="alert alert-danger mt-3" role="alert"><%= locals.message %></div>
+  <% } %> <%- include('../layouts/menu.ejs') %>
+  <div class="scan-container">
+    <video id="preview"></video>
+  </div>
+</div>
+
+<!-- Button trigger modal -->
+<button
+  type="button"
+  class="btn btn-primary"
+  data-bs-toggle="modal"
+  data-bs-target="#exampleModal"
+  style="display: none"
+  id="scaned"
+>
+  Launch demo modal
+</button>
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add Ammount</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form action="/transations/send" method="POST">
+          <input
+            type="text"
+            name="phone"
+            required
+            placeholder="Phone"
+            id="phone"
+            hidden="true"
+          />
+          <input type="text" value="qr" name="qr" hidden="true" />
+          <input
+            type="number"
+            name="ammount"
+            required
+            placeholder="Ammount"
+            id="ammount"
+          />
+          <button class="btn btn-md btn-primart" type="submit">Comfirm</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script defer src="/js/myqr.js"></script>
