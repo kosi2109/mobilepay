@@ -54,7 +54,7 @@
 
 .pf-detail-item {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   width: 50%;
 }
 
