@@ -79,16 +79,18 @@
   height: 90vh;
   width: 100%;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   flex-direction: column;
   background-color: brown;
   color: #fafafa;
+ 
 }
 
 .qr-container img {
-  height: 70%;
-  width: auto;
+  height: auto;
+  width: 90%;
+  margin: 30px 0;
 }
 
 .scan-container {

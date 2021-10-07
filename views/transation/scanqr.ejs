@@ -9,7 +9,7 @@
   <% if (locals.message) { %>
 
   <div class="alert alert-danger mt-3" role="alert"><%= locals.message %></div>
-  <% } %> <%- include('../layouts/menu.ejs') %>
+  <% } %> 
   <div class="scan-container">
     <video id="preview"></video>
   </div>
@@ -72,3 +72,4 @@
 </div>
 
 <script defer src="/js/myqr.js"></script>
+<%- include('../layouts/menu.ejs') %>

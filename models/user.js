@@ -23,7 +23,7 @@ const userSchema = new mongoose.Schema({
   },
   balance: {
     type: Number,
-    default: 0,
+    default: 5000,
   },
   coverImage: {
     type: Buffer,

@@ -54,6 +54,7 @@ const authentication = (app, passport) => {
   });
 
   app.post("/password_reset", checkAuthenticate, async (req, res) => {
+    const pas0 = req.body.password0;
     const pas1 = req.body.password1;
     const pas2 = req.body.password2;
     const user = await Users.findById(req.user._conditions._id);
@@ -63,7 +64,16 @@ const authentication = (app, passport) => {
     if (pas1 != pas2) {
       const message = "Password doesn't match.";
       res.render("authentication/passwordReset.ejs", { message: message });
-    } else {
+    } 
+    else if( bcrypt.compare(user.passport,hashedpas1) ){
+      const message = "The Password shouldn't same as before .";
+      res.render("authentication/passwordReset.ejs", { message: message });
+    }
+    else if (!bcrypt.compare(user.passport,pas0)){
+      const message = "Wroung Password";
+      res.render("authentication/passwordReset.ejs", { message: message });
+    }
+    else {
       const passwordUpdated = await Users.findByIdAndUpdate(
         user.id,
         { password: hashedpas1 },
