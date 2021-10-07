@@ -1,16 +1,15 @@
-<div>
-  <label for="phone">Phone</label>
-  <input
-    type="phone"
-    id="phone"
-    required
-    name="phone"
-    class="form-control mb-3"
-    autocomplete="false"
-  />
+<div class="input-group flex-nowrap mb-3">
+  <span class="input-group-text" id="addon-wrapping">09</span>
+  <input type="text"
+  id="phone"
+  aria-describedby="basic-addon1"
+  required
+  name="phone"
+  class="form-control"
+  autocomplete="false" placeholder="Phone" aria-label="Username" aria-describedby="addon-wrapping">
 </div>
+
 <div>
-  <label for="password">Password</label>
   <input
     type="password"
     id="password"
@@ -18,6 +17,9 @@
     name="password"
     class="form-control mb-3"
     autocomplete="false"
+    placeholder="Password"
   />
 </div>
+
+
 <button type="submit" class="btn btn-md" style="background-color: brown;color: #fafafa;">Login</button>
